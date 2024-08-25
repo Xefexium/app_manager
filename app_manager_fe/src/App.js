@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
-  const apiUrl = 'https://smalltimegaming.com:8000/'
+  const apiUrl = 'https://smalltimegaming.com/api/'
 
   const [zomboidStatus, setZomboidStatus] = useState('')
   const [logs, setLogs] = useState('')
@@ -17,7 +17,7 @@ function App() {
   }, [])
 
   const fetchLogs = () => {
-    axios.post(apiUrl + 'log-zomboid/').then(response => {
+    axios.get(apiUrl + 'log-zomboid/').then(response => {
       setLogs(response.data.msg)
     }).catch((error) => {
       setLogs(error)

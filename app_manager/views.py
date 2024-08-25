@@ -26,11 +26,11 @@ def stop_zomboid(request):
 
 @csrf_exempt
 def log_zomboid(request):
-    if request.method == 'POST':
+    if request.method == 'GET':
         print("Fetching logs")
         logs = os.popen('journalctl --unit=projectzomboid -n 100 --no-pager').read()
         return JsonResponse({'msg': logs})
     else:
-        print("Request was not a POST request!")
+        print("Request was not a GET request!")
         return JsonResponse({'msg': 'Failed to retrieve logs'})
 
