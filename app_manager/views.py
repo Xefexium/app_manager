@@ -3,6 +3,28 @@ from django.views.decorators.csrf import csrf_exempt
 import os
 
 @csrf_exempt
+def save_zomboid(request):
+    if request.method == 'POST':
+        print("Restarting project zomboid server")
+        os.system('/home/ubuntu/scripts/save_zomboid.sh')
+        print("Project zomboid server restarted")
+        return JsonResponse({'msg': 'Server Saved!'})
+    else:
+        print("Request was not a POST request!")
+        return JsonResponse({'msg': 'Server failed to save'})
+
+@csrf_exempt
+def restart_zomboid(request):
+    if request.method == 'POST':
+        print("Restarting project zomboid server")
+        os.system('sudo /home/ubuntu/scripts/restart_zomboid.sh')
+        print("Project zomboid server restarted")
+        return JsonResponse({'msg': 'Server Restarted'})
+    else:
+        print("Request was not a POST request!")
+        return JsonResponse({'msg': 'Server failed to restart'})
+
+@csrf_exempt
 def start_zomboid(request):
     if request.method == 'POST':
         print("Turning project zomboid server on")
