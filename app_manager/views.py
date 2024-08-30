@@ -6,7 +6,7 @@ import os
 def save_zomboid(request):
     if request.method == 'POST':
         print("Restarting project zomboid server")
-        os.system('/home/ubuntu/scripts/save_zomboid.sh')
+        os.system('/home/ubuntu/website/scripts/save_zomboid.sh')
         print("Project zomboid server restarted")
         return JsonResponse({'msg': 'Server Saved!'})
     else:
@@ -17,7 +17,7 @@ def save_zomboid(request):
 def restart_zomboid(request):
     if request.method == 'POST':
         print("Restarting project zomboid server")
-        os.system('sudo /home/ubuntu/scripts/restart_zomboid.sh')
+        os.system('sudo /home/ubuntu/website/scripts/restart_zomboid.sh')
         print("Project zomboid server restarted")
         return JsonResponse({'msg': 'Server Restarted'})
     else:
@@ -28,7 +28,7 @@ def restart_zomboid(request):
 def start_zomboid(request):
     if request.method == 'POST':
         print("Turning project zomboid server on")
-        os.system('sudo /home/ubuntu/scripts/start_zomboid.sh')
+        os.system('sudo /home/ubuntu/website/scripts/start_zomboid.sh')
         print("Project zomboid server now on")
         return JsonResponse({'msg': 'Server Started'})
     else:
@@ -39,7 +39,7 @@ def start_zomboid(request):
 def stop_zomboid(request):
     if request.method == 'POST':
         print("Turning project zomboid server off")
-        os.system('sudo /home/ubuntu/scripts/stop_zomboid.sh')
+        os.system('sudo /home/ubuntu/website/scripts/stop_zomboid.sh')
         print("Project zomboid server now off")
         return JsonResponse({'msg': 'Server Stopped'})
     else:

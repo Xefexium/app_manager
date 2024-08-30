@@ -9,7 +9,7 @@ function App() {
   const apiUrl = 'https://smalltimegaming.com/api/'
 
   const [zomboidStatus, setZomboidStatus] = useState('Waiting for command...')
-  const [logs, setLogs] = useState('')
+  const [logs, setLogs] = useState('Fetching Logs...')
 
   useEffect(() => {
     const poll = setInterval(fetchLogs, 10000)
@@ -20,7 +20,8 @@ function App() {
     axios.get(apiUrl + 'log-zomboid/').then(response => {
       setLogs(response.data.msg)
     }).catch((error) => {
-      setLogs(error)
+      setLogs('Error fetching logs')
+      console.log(error)
     })
   }
 
@@ -58,12 +59,9 @@ function App() {
   }
 
   const printLogs = () => {
-    if (logs) {
-      return logs.split('\n').reverse().map((line, index) => (
-        <p key={index}>{line.trim()}</p>
-      ))
-    }
-    return <p>No Logs found</p>
+    return logs.split('\n').reverse().map((line, index) => (
+      <p key={index}>{line.trim()}</p>
+    ))
   }
 
   return (

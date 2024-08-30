@@ -1,0 +1,1 @@
+systemctl stop 7daystodie.service
