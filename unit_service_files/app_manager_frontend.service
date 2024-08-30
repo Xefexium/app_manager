@@ -1,0 +1,14 @@
+[Unit]
+Description=App Manager Frontend Service
+After=network.target
+
+[Service]
+ExecStart=/bin/bash /home/ubuntu/website/scripts/frontend.sh
+RemainAfterExit=yes
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
+
+

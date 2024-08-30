@@ -1,0 +1,13 @@
+[Unit]
+Description=Project Zomboid Service
+After=network.target
+
+[Service]
+ExecStart=/bin/bash /home/ubuntu/website/scripts/zomboid.sh
+RemainAfterExit=yes
+User=ubuntu
+
+[Install]
+WantedBy=multi-user.target
+
+

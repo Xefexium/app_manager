@@ -1,0 +1,13 @@
+[Unit]
+Description=App Manager Backend Service
+After=network.target
+
+[Service]
+ExecStart=/bin/bash /home/ubuntu/website/scripts/backend.sh
+Restart=always
+User=ubuntu
+
+[Install]
+WantedBy=multi-user.target
+
+
